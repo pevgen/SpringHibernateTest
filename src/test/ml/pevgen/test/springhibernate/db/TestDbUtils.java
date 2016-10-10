@@ -33,7 +33,7 @@ public class TestDbUtils {
     public static void before(DataSource dataSource)
             throws FileNotFoundException, SQLException, DatabaseUnitException, MalformedURLException {
 
-//        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/db/create-tables.sql"));
+        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/db/create-tables.sql"));
 
         IDatabaseConnection con = new H2Connection(dataSource.getConnection(), "TDM"); //Create DBUnit Database connection
         try {

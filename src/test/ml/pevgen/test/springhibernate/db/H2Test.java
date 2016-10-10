@@ -1,5 +1,6 @@
 package test.ml.pevgen.test.springhibernate.db;
 
+import ml.pevgen.test.springhibernate.domain.TmObjectOp;
 import ml.pevgen.test.springhibernate.service.GirService;
 import org.dbunit.DatabaseUnitException;
 import org.junit.After;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by Polyak on 10.10.2016.
@@ -47,6 +49,9 @@ public class H2Test {
     public void testGirList() {
         Assert.assertNotNull(dataSource);
         Assert.assertNotNull(girService);
+        List<TmObjectOp> list = girService.getTmObjectOpList();
+        Assert.assertNotNull(list);
+        Assert.assertTrue(list.size()> 0);
     }
 
 }
