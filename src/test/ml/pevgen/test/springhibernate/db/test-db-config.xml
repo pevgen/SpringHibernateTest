@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ********************************************************************************
+                         Отдельный DataSource для тестов
+         ********************************************************************************  -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="org.h2.Driver"/>
+        <property name="jdbcUrl"
+                  value="jdbc:h2:mem:test;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;"/>
+
+        <!--<property name="jdbcUrl"-->
+                  <!--value="jdbc:h2:mem:test;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS DBQ;;INIT=RUNSCRIPT FROM 'classpath:test/create-tables.sql'"/>-->
+        <property name="user" value=""/>
+        <property name="password" value=""/>
+
+        <property name="maxPoolSize" value="100"/>
+    </bean>
+
+
+    <!--  *****************************************************************************************
+                                   MyBatis
+    *****************************************************************************************-->
+
+    <!--&lt;!&ndash; infrastructure &ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">-->
+        <!--<constructor-arg index="0" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
+</beans>
