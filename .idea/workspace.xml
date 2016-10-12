@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f61fc2a-3b40-4886-9bed-7bd2b6473c96" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\ASULRJAVA\SpringHibernateTest\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="SpringHibernateTest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1135,7 +1135,7 @@
       <workItem from="1476082346565" duration="9274000" />
       <workItem from="1476108472482" duration="1068000" />
       <workItem from="1476109553443" duration="323000" />
-      <workItem from="1476113618340" duration="2798000" />
+      <workItem from="1476113618340" duration="2847000" />
     </task>
     <task id="LOCAL-00001" summary="### v.0.1 (10.10.2016)&#10;- Таблица добавлена в h2-конфигурацию&#10;- H2-база создаётся  в конфиге через SimpleDriverDataSource">
       <created>1476109811002</created>
@@ -1145,7 +1145,11 @@
       <created>1476257837244</created>
       <updated>1476257837244</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="удалён worksplace.xml из git-проекта">
+      <created>1476257963413</created>
+      <updated>1476257963413</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1181,7 +1185,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39758000" />
+    <option name="totallyTimeSpent" value="39807000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1060" extended-state="0" />
@@ -1241,7 +1245,8 @@
     </option>
     <MESSAGE value="### v.0.1 (10.10.2016)&#10;- Таблица добавлена в h2-конфигурацию&#10;- H2-база создаётся  в конфиге через SimpleDriverDataSource" />
     <MESSAGE value="### v.0.2 (11.10.2016)&#10;- для работы с H2 тип DATE из Oracle надо передалать в скрипте создания, как TIMESTAMP" />
-    <option name="LAST_COMMIT_MESSAGE" value="### v.0.2 (11.10.2016)&#10;- для работы с H2 тип DATE из Oracle надо передалать в скрипте создания, как TIMESTAMP" />
+    <MESSAGE value="удалён worksplace.xml из git-проекта" />
+    <option name="LAST_COMMIT_MESSAGE" value="удалён worksplace.xml из git-проекта" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
