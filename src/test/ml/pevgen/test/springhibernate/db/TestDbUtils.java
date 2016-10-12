@@ -3,6 +3,7 @@ package test.ml.pevgen.test.springhibernate.db;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.dataset.ReplacementDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.ext.h2.H2Connection;
@@ -15,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  * Created by user on 15.06.2015.
@@ -40,6 +42,10 @@ public class TestDbUtils {
             con.getConfig().setProperty(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
 
             FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/db/test-dataset.xml")); // Load XML file to DB unit dataset
+
+//            ReplacementDataSet rDataSet = new ReplacementDataSet(dataSet);
+//            rDataSet.addReplacementObject("[TODAY]", new Date());
+
             DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
         } finally {
             con.close();

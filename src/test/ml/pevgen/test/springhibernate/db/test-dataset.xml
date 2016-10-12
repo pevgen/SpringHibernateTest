@@ -1,7 +1,8 @@
 <dataset>
 
-
     <TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="2015-12-15 13:13:13.0" kodop_p="01" id_obj="1234567890" id_stan="1000041000001"/>
+
+    <!--<TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="[TODAY]" kodop_p="01" id_obj="1234567890" id_stan="1000041000001"/>-->
 
     <!--<DBQ.DBQ_CHAINS id_chain="-100" comm="Цепочка тестовая" kod_doc="0"/>-->
     <!--<DBQ.DBQ_CHAINS id_chain="-200" comm="Цепочка тестовая. OUT" kod_doc="0"/>-->

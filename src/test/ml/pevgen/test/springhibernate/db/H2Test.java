@@ -17,6 +17,9 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import javax.sql.DataSource;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -44,9 +47,22 @@ public class H2Test {
     }
 
 
+@Test
+public void testDate() throws SQLException {
+    Assert.assertNotNull(dataSource);
+
+    try (Connection conn = dataSource.getConnection()){
+        PreparedStatement ps = conn.prepareStatement("select * from tdm.tm_object_op");
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            System.out.printf("rs=" + rs.getString("vrsvop"));
+        }
+    }
+
+}
 
     @Test
-    public void testGirList() {
+    public void testGirList()  {
         Assert.assertNotNull(dataSource);
         Assert.assertNotNull(girService);
         List<TmObjectOp> list = girService.getTmObjectOpList();
