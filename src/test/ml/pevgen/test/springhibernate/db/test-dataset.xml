@@ -1,6 +1,12 @@
 <dataset>
 
-    <TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="2015-12-15 13:13:13.0" kodop_p="01" id_obj="1234567890" id_stan="1000041000001"/>
+    <NSI.NAME_OB id_obj="1" esrst="0010" type_ob="01" vid_ob="10" name_20="Путь 1" name_6="Путь"/>
+    <NSI.NAME_OB id_obj="1410" esrst="00410" type_ob="04" vid_ob="10" name_20="Станция 1" name_6="Ст"/>
+
+    <NSI.NS015 kodop_p="01" name_op="Прибытие" name_ops="Прб" obozn_op="Прб"/>
+
+
+    <TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="2015-12-15 13:13:13.0" kodop_p="01" id_obj="1" id_stan="1410"/>
 
     <!--<TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="[TODAY]" kodop_p="01" id_obj="1234567890" id_stan="1000041000001"/>-->
 

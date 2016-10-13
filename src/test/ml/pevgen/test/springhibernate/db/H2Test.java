@@ -48,7 +48,7 @@ public class H2Test {
 
 
 @Test
-public void testDate() throws SQLException {
+public void testCreatDataBase() throws SQLException {
     Assert.assertNotNull(dataSource);
 
     try (Connection conn = dataSource.getConnection()){
@@ -59,10 +59,18 @@ public void testDate() throws SQLException {
         }
     }
 
+    try (Connection conn = dataSource.getConnection()){
+        PreparedStatement ps = conn.prepareStatement("select * from NSI.NAME_OB");
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            System.out.printf("rs=" + rs.getString("esrst"));
+        }
+    }
+
 }
 
     @Test
-    public void testGirList()  {
+    public void testGetTmObjectOpList()  {
         Assert.assertNotNull(dataSource);
         Assert.assertNotNull(girService);
         List<TmObjectOp> list = girService.getTmObjectOpList();

@@ -1,8 +1,50 @@
 CREATE SCHEMA IF NOT EXISTS NSI;
 CREATE SCHEMA IF NOT EXISTS TDM;
 
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
+create table IF NOT EXISTS NSI.NS015
+(
+  kodop_p  CHAR(2) not null,
+  name_op  CHAR(21) not null,
+  name_ops CHAR(15) not null,
+  obozn_op CHAR(3) not null,
+  tab_kod  CHAR(18),
+  kod_1042 CHAR(2),
+  pr_otmen NUMBER(1) default 1 not null,
+  tipop_p  VARCHAR2(1),
+  pr_vag   NUMBER(1),
+  pr_gimr  NUMBER(1)
+);
+-- Create/Recreate primary, unique and foreign key constraints
+alter table NSI.NS015 add constraint XPKNS015 primary key (KODOP_P);
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
 
-
+create table IF NOT EXISTS NSI.NAME_OB
+(
+  id_obj      NUMBER(14) not null,
+  esrst       CHAR(6) not null,
+  type_ob     CHAR(2) not null,
+  vid_ob      CHAR(2) not null,
+  name_20     CHAR(20) not null,
+  name_6      CHAR(6) not null,
+  external_id NUMBER(14) default 0,
+  name_2      VARCHAR2(2) default 00,
+  subtype     NUMBER(3) default 0,
+  id_owner    NUMBER(14) default 0,
+  num_ob      NUMBER default 0
+);
+-- Create/Recreate indexes
+create index NSI.XIE1NAME_OB on NSI.NAME_OB (TYPE_OB, VID_OB, ESRST);
+create index NSI.XIE2NAME_OB on NSI.NAME_OB (ID_OBJ, NUM_OB);
+-- Create/Recreate primary, unique and foreign key constraints
+alter table NSI.NAME_OB add constraint XPKNAME_OB primary key (ID_OBJ);
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
 create table IF NOT EXISTS TDM.TM_OBJECT_OP
 (
   id_poezd          NUMBER(38) not null,
@@ -87,102 +129,4 @@ create index XIE3TM_OBJECT_OP on TDM.TM_OBJECT_OP (ID_STAN, ID_OBJ);
 create index XIE4TM_OBJECT_OP on TDM.TM_OBJECT_OP (ID_OBJ, VRSVOP, KODOP_P);
 create index XIE5TM_OBJECT_OP on TDM.TM_OBJECT_OP (REC_STATE, VRSVOP);
 -- Create/Recreate primary, unique and foreign key constraints
-alter table TDM.TM_OBJECT_OP
-add constraint XPKTM_OBJECT_OP primary key (ID_POEZD, VRSVOP);
-
-
--- create table IF NOT EXISTS TDM.TM_OBJECT_OP
--- (
---   id_poezd NUMBER not null,
---   VRSVOP date,
---   kodop_p CHAR(2)
--- );
-
-
--- create table IF NOT EXISTS DBQ.DBQ_CHAINS
--- (
---   id_chain NUMBER not null,
---   comm VARCHAR2(4000),
---   kod_doc NUMBER
--- );
-
--- create table IF NOT EXISTS DBQ.DBQ_EXTCALL
--- (
---   id_chain NUMBER not null,
---   key_string VARCHAR2(2000),
---   key_type VARCHAR2(100)
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_OP
--- (
---   id_operation              NUMBER not null,
---   sender_type               VARCHAR2(100) not null,
---   in_out                    VARCHAR2(7) default 'IN_OUT',
---   attempt_count             NUMBER,
---   attempt_interval          NUMBER,
---   id_group                  NUMBER,
---   comm                      VARCHAR2(2000),
---   time_response_waiting_sec NUMBER default 60
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_OP_XSLT
--- (
---   id_operation NUMBER not null,
---   xslt_text CLOB
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_OP_DBPROC
--- (
---   id_operation  NUMBER not null,
---   package_name  VARCHAR2(1000),
---   function_name VARCHAR2(1000)
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_OP_HTTP
--- (
---   id_operation NUMBER not null,
---   host_name    VARCHAR2(1000),
---   port         NUMBER default 80,
---   context_path VARCHAR2(2000),
---   headers      VARCHAR2(2000),
---   method       VARCHAR2(100) default 'POST'
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_OP_ROUTES
--- (
---   id_chain           NUMBER not null,
---   id_operation       NUMBER not null,
---   id_operation_ok    NUMBER,
---   id_operation_error NUMBER,
---   npp                NUMBER
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_QUEUE_REQUEST
--- (
---   id_message                NUMBER not null,
---   id_message_prev           NUMBER,
---   time_create               TIMESTAMP(6) default SYSTIMESTAMP,
---   time_process              TIMESTAMP(6),
---   run_status                NUMBER(1) default 0,
---   text                      CLOB,
---   sender_type               VARCHAR2(100) default 'HTTP' not null,
---   props                     VARCHAR2(4000),
---   headers                   VARCHAR2(4000),
---   id_operation              NUMBER not null,
---   in_out                    VARCHAR2(7) default 'IN_OUT' not null,
---   id_chain                  NUMBER,
---   attempt_number            NUMBER default 1,
---   user_properties           VARCHAR2(4000),
---   time_next_attempt         TIMESTAMP(6),
---   time_response_waiting_sec NUMBER default 180
--- );
---
--- create table IF NOT EXISTS DBQ.DBQ_EXTCALL_MESSAGES
--- (
---   id_message NUMBER not null,
---   d_timer    TIMESTAMP(6) default SYSTIMESTAMP,
---   text       CLOB,
---   headers    VARCHAR2(4000),
---   is_error   NUMBER default 0,
---   id_process NUMBER
--- );
+alter table TDM.TM_OBJECT_OP add constraint XPKTM_OBJECT_OP primary key (ID_POEZD, VRSVOP);

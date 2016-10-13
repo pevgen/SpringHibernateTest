@@ -1,9 +1,6 @@
 package ml.pevgen.test.springhibernate.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -18,13 +15,22 @@ public class TmObjectOp {
     long idPoezd;
     @Column(name = "vrsvop")
     Date vrsvop;
-    @Column(name = "kodop_p")
-    String kodOpP;
-    @Column(name = "id_stan")
-    long idStan;
-    @Column(name = "id_obj")
-    long idObj;
 
+    //    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
+    @JoinColumn(name = "id_stan")
+    private NameOb stan;
+
+
+    //    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
+    @JoinColumn(name = "id_obj")
+    private NameOb obj;
+
+    //    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
+    @JoinColumn(name = "kodop_p")
+    private Ns015 kodOpP;
 
     public long getIdPoezd() {
         return idPoezd;
@@ -42,27 +48,28 @@ public class TmObjectOp {
         this.vrsvop = vrsvop;
     }
 
-    public String getKodOpP() {
+    public NameOb getStan() {
+        return stan;
+    }
+
+    public void setStan(NameOb stan) {
+        this.stan = stan;
+    }
+
+    public NameOb getObj() {
+        return obj;
+    }
+
+    public void setObj(NameOb obj) {
+        this.obj = obj;
+    }
+
+    public Ns015 getKodOpP() {
         return kodOpP;
     }
 
-    public void setKodOpP(String kodOpP) {
+    public void setKodOpP(Ns015 kodOpP) {
         this.kodOpP = kodOpP;
     }
-
-    public long getIdStan() {
-        return idStan;
-    }
-
-    public void setIdStan(long idStan) {
-        this.idStan = idStan;
-    }
-
-    public long getIdObj() {
-        return idObj;
-    }
-
-    public void setIdObj(long idObj) {
-        this.idObj = idObj;
-    }
 }
+

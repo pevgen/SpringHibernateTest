@@ -2,7 +2,9 @@ package test.ml.pevgen.test.springhibernate.db;
 
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConfig;
+import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ReplacementDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -37,7 +39,10 @@ public class TestDbUtils {
 
         RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/db/create-tables.sql"));
 
-        IDatabaseConnection con = new H2Connection(dataSource.getConnection(), "TDM"); //Create DBUnit Database connection
+        // Create DBUnit Database connection
+        IDatabaseConnection con = new DatabaseConnection(dataSource.getConnection());
+
+//        IDatabaseConnection con = new H2Connection(dataSource.getConnection(), "TDM"); //Create DBUnit Database connection
         try {
             con.getConfig().setProperty(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
 
