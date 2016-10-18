@@ -52,6 +52,10 @@ public class TestDbUtils {
 //            rDataSet.addReplacementObject("[TODAY]", new Date());
 
             DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
+
+            dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/db/custom-layout-dataset.xml")); // Load XML file to DB unit dataset
+            DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
+
         } finally {
             con.close();
         }

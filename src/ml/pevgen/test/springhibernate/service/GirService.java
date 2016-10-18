@@ -1,5 +1,6 @@
 package ml.pevgen.test.springhibernate.service;
 
+import ml.pevgen.test.springhibernate.domain.CustomLayout;
 import ml.pevgen.test.springhibernate.domain.TmObjectOp;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +32,14 @@ public class GirService {
             System.out.println("Employee NAME :" + e);
         }
 
+        return list;
+    }
+
+
+    public List<CustomLayout> getCustomLayoutList() {
+        Query query = entityManager.createQuery(
+                "Select c from ml.pevgen.test.springhibernate.domain.CustomLayout c ");
+        List<CustomLayout> list = query.getResultList();
         return list;
     }
 

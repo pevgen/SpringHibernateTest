@@ -5,82 +5,9 @@
 
     <NSI.NS015 kodop_p="01" name_op="Прибытие" name_ops="Прб" obozn_op="Прб"/>
 
-
     <TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="2015-12-15 13:13:13.0" kodop_p="01" id_obj="1" id_stan="1410"/>
 
-    <!--<TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="[TODAY]" kodop_p="01" id_obj="1234567890" id_stan="1000041000001"/>-->
 
-    <!--<DBQ.DBQ_CHAINS id_chain="-100" comm="Цепочка тестовая" kod_doc="0"/>-->
-    <!--<DBQ.DBQ_CHAINS id_chain="-200" comm="Цепочка тестовая. OUT" kod_doc="0"/>-->
-
-    <!--<DBQ.DBQ_EXTCALL id_chain="-100" key_string="//teststring/dbunit" key_type="XPATH"/>-->
-
-
-    <!--<DBQ.DBQ_OP id_operation="-100" sender_type="XSLT" in_out="IN_OUT" comm="Операция тестовая XSLT"/>-->
-    <!--<DBQ.DBQ_OP id_operation="-101" sender_type="DBPROC" in_out="IN_ONLY" comm="Операция тестовая DB"/>-->
-    <!--<DBQ.DBQ_OP id_operation="-102" sender_type="HTTP" in_out="IN_OUT" comm="Операция тестовая HTTP"/>-->
-
-    <!--<DBQ.DBQ_OP_XSLT id_operation="-100" xslt_text="xslttestttt"/>-->
-
-    <!--<DBQ.DBQ_OP_DBPROC id_operation="-101" package_name="DBQ.testPackage" function_name="testFunction"/>-->
-
-    <!--<DBQ.DBQ_OP_HTTP id_operation="-102" host_name="localhost" context_path="/testPath" headers="header123=123"-->
-                     <!--method="GET"/>-->
-
-    <!--<DBQ.DBQ_OP_ROUTES id_chain="-100" id_operation="-102" id_operation_ok="-101" id_operation_error="-100" npp="1"/>-->
-
-
-    <!--<DBQ.DBQ_EXTCALL_MESSAGES-->
-            <!--id_message="66"-->
-            <!--text="Внешнее сообщение с ошибкой"-->
-            <!--headers="Accept-Language=ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4"-->
-            <!--is_error="1"/>-->
-
-
-    <!--<DBQ.DBQ_QUEUE_REQUEST id_message="10"-->
-                           <!--id_message_prev="5"-->
-                           <!--time_process="2015-08-03 13:59:00.0"-->
-                           <!--run_status="0"-->
-                           <!--text="текст с русскими буквами для проверки"-->
-                           <!--sender_type="HTTP"-->
-                           <!--props="p=1"-->
-                           <!--headers="h2=2"-->
-                           <!--id_operation="-102"-->
-                           <!--in_out="IN_OUT"-->
-                           <!--id_chain="-100"-->
-                           <!--user_properties="u3=3"-->
-                           <!--time_next_attempt="2015-08-03 14:58:00.0"-->
-                           <!--time_response_waiting_sec="180"/>-->
-
-    <!--<DBQ.DBQ_QUEUE_REQUEST id_message="11"-->
-                           <!--id_message_prev="15"-->
-                           <!--time_process="2015-08-03 13:59:00.0"-->
-                           <!--run_status="1"-->
-                           <!--text="текст с русскими буквами для проверки"-->
-                           <!--sender_type="HTTP"-->
-                           <!--props="p=1"-->
-                           <!--headers="h2=2"-->
-                           <!--id_operation="-102"-->
-                           <!--in_out="IN_OUT"-->
-                           <!--id_chain="-100"-->
-                           <!--user_properties="u3=3"-->
-                           <!--time_next_attempt="2015-08-03 14:58:00.0"-->
-                           <!--time_response_waiting_sec="180"/>-->
-
-    <!--<DBQ.DBQ_QUEUE_REQUEST id_message="15"-->
-                           <!--id_message_prev="55"-->
-                           <!--time_process="2015-08-03 13:59:00.0"-->
-                           <!--run_status="5"-->
-                           <!--text="текст с русскими буквами для проверки"-->
-                           <!--sender_type="HTTP"-->
-                           <!--props="p=1"-->
-                           <!--headers="h2=2"-->
-                           <!--id_operation="-102"-->
-                           <!--in_out="IN_OUT"-->
-                           <!--id_chain="-100"-->
-                           <!--user_properties="u3=3"-->
-                           <!--time_next_attempt="2015-08-03 14:58:00.0"-->
-                           <!--time_response_waiting_sec="180"/>-->
-
+    <!--<TDM.CUSTOM_LAYOUT id_layout="1" is_active="1" type_id ="1" xml='<?xml version="1.0" encoding="UTF-8"?><some xml></some xml>'/>-->
 
 </dataset>

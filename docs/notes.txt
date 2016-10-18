@@ -1,0 +1,2 @@
+-- Oracle type SYS.XML need changing to H2 type CLOB
+-- Oracle type DATE need changing to H2 type TIMESTAMP

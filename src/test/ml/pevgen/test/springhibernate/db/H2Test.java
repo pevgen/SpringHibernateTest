@@ -1,8 +1,11 @@
 package test.ml.pevgen.test.springhibernate.db;
 
+import ml.pevgen.test.springhibernate.domain.CustomLayout;
 import ml.pevgen.test.springhibernate.domain.TmObjectOp;
 import ml.pevgen.test.springhibernate.service.GirService;
 import org.dbunit.DatabaseUnitException;
+
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,7 +24,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import org.hamcrest.collection.IsEmptyCollection;
+import static org.hamcrest.CoreMatchers.*;
+
+
 
 /**
  * Created by Polyak on 10.10.2016.
@@ -38,6 +48,8 @@ public class H2Test {
 
     @Before
     public void before() throws FileNotFoundException, DatabaseUnitException, MalformedURLException, SQLException {
+        Assert.assertThat(dataSource, notNullValue());
+        Assert.assertThat(girService, notNullValue());
         TestDbUtils.before(dataSource);
     }
 
@@ -48,8 +60,7 @@ public class H2Test {
 
 
 @Test
-public void testCreatDataBase() throws SQLException {
-    Assert.assertNotNull(dataSource);
+public void testCreateDataBase() throws SQLException {
 
     try (Connection conn = dataSource.getConnection()){
         PreparedStatement ps = conn.prepareStatement("select * from tdm.tm_object_op");
@@ -71,11 +82,27 @@ public void testCreatDataBase() throws SQLException {
 
     @Test
     public void testGetTmObjectOpList()  {
-        Assert.assertNotNull(dataSource);
-        Assert.assertNotNull(girService);
         List<TmObjectOp> list = girService.getTmObjectOpList();
-        Assert.assertNotNull(list);
-        Assert.assertTrue(list.size()> 0);
+        Assert.assertThat(list, notNullValue());
+        Assert.assertThat(list, not(IsEmptyCollection.emptyCollectionOf(TmObjectOp.class)));
+    }
+
+
+
+    @Test
+    public void testGetCustomLayoutList(){
+        List<CustomLayout> list = girService.getCustomLayoutList();
+        Assert.assertThat(list, notNullValue());
+        Assert.assertThat(list, not(IsEmptyCollection.emptyCollectionOf(CustomLayout.class)));
+
+    }
+
+
+    @Test
+    public void testNotEmptyList(){
+        List<String> list = Arrays.asList("item_1","item_2");
+        Assert.assertThat(list, notNullValue());
+        Assert.assertThat(list, not(IsEmptyCollection.emptyCollectionOf(String.class)));
     }
 
 }

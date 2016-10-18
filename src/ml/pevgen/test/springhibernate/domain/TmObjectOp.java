@@ -1,6 +1,7 @@
 package ml.pevgen.test.springhibernate.domain;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ public class TmObjectOp {
     @Column(name = "id_poezd")
     long idPoezd;
     @Column(name = "vrsvop")
-    Date vrsvop;
+    LocalDateTime vrsvop;
 
     //    @OneToOne(fetch = FetchType.LAZY)
     @OneToOne
@@ -40,11 +41,11 @@ public class TmObjectOp {
         this.idPoezd = idPoezd;
     }
 
-    public Date getVrsvop() {
+    public LocalDateTime getVrsvop() {
         return vrsvop;
     }
 
-    public void setVrsvop(Date vrsvop) {
+    public void setVrsvop(LocalDateTime vrsvop) {
         this.vrsvop = vrsvop;
     }
 

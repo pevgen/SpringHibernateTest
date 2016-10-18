@@ -1,6 +1,26 @@
 CREATE SCHEMA IF NOT EXISTS NSI;
 CREATE SCHEMA IF NOT EXISTS TDM;
 
+
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------
+create table IF NOT EXISTS TDM.CUSTOM_LAYOUT
+(
+  id_layout         NUMBER(14) not null,
+  is_active         NUMBER(1) default 0,
+  xml               CLOB,
+  userid            NUMBER(14),
+  description       VARCHAR2(50),
+  create_date       TIMESTAMP default sysdate,
+  groupname         VARCHAR2(50),
+  type_id           NUMBER,
+  id_stan           NUMBER,
+  enable_backup     NUMBER default 0,
+  daily_backup_hour NUMBER
+);
+alter table TDM.CUSTOM_LAYOUT add constraint XPKCUSTOM_LAYOUT primary key (ID_LAYOUT);
+
 -- ----------------------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------------------
