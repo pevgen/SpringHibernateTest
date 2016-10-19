@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -24,7 +25,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 
@@ -87,15 +89,6 @@ public void testCreateDataBase() throws SQLException {
         Assert.assertThat(list, not(IsEmptyCollection.emptyCollectionOf(TmObjectOp.class)));
     }
 
-
-
-    @Test
-    public void testGetCustomLayoutList(){
-        List<CustomLayout> list = girService.getCustomLayoutList();
-        Assert.assertThat(list, notNullValue());
-        Assert.assertThat(list, not(IsEmptyCollection.emptyCollectionOf(CustomLayout.class)));
-
-    }
 
 
     @Test

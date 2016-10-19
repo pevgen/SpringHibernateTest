@@ -49,7 +49,7 @@ public class H2Config {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"ml.pevgen.test.springhibernate.domain"});
+        em.setPackagesToScan(new String[]{"ml.pevgen.test.springhibernate.domain", "ml.pevgen.test.springhibernate.xmlmodel"});
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

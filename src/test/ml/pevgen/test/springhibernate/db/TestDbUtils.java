@@ -70,7 +70,7 @@ public class TestDbUtils {
      * @throws java.io.FileNotFoundException
      */
     public static void after(DataSource dataSource) throws SQLException, FileNotFoundException {
-//        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/delete.sql"));
+        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/db/delete-tables.sql"));
     }
 
 }
