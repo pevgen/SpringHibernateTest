@@ -1,20 +1,17 @@
 package test.ml.pevgen.test.springhibernate.service; 
 
 import ml.pevgen.test.springhibernate.domain.CustomLayout;
-import ml.pevgen.test.springhibernate.service.GirService;
 import ml.pevgen.test.springhibernate.service.PnxStationaryService;
 import org.dbunit.DatabaseUnitException;
 import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-import test.ml.pevgen.test.springhibernate.db.GirServiceConfigTest;
-import test.ml.pevgen.test.springhibernate.db.H2Config;
-import test.ml.pevgen.test.springhibernate.db.TestDbUtils;
+import test.ml.pevgen.test.springhibernate.h2.H2DbConfigT;
+import test.ml.pevgen.test.springhibernate.h2.TestDbUtils;
 
 import javax.sql.DataSource;
 import java.io.FileNotFoundException;
@@ -36,7 +33,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 * @version 1.0 
 */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {H2Config.class, PnxServiceConfigTest.class}, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = {H2DbConfigT.class, PnxServiceConfigT.class}, loader = AnnotationConfigContextLoader.class)
 public class PnxStationaryServiceTest {
 
     @Autowired

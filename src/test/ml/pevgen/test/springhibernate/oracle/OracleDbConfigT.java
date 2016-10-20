@@ -1,4 +1,4 @@
-package test.ml.pevgen.test.springhibernate;
+package test.ml.pevgen.test.springhibernate.oracle;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 //@PropertySource({ "classpath:persistence-mysql.properties" })
-public class DbConfigTest {
+public class OracleDbConfigT {
 
     @Autowired
     private Environment env;

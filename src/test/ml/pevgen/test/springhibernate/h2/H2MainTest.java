@@ -1,8 +1,5 @@
-package test.ml.pevgen.test.springhibernate.db;
+package test.ml.pevgen.test.springhibernate.h2;
 
-import ml.pevgen.test.springhibernate.domain.CustomLayout;
-import ml.pevgen.test.springhibernate.domain.TmObjectOp;
-import ml.pevgen.test.springhibernate.service.GirService;
 import org.dbunit.DatabaseUnitException;
 
 
@@ -12,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -25,8 +21,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,19 +33,16 @@ import static org.hamcrest.CoreMatchers.*;
  * Created by Polyak on 10.10.2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {H2Config.class, GirServiceConfigTest.class}, loader = AnnotationConfigContextLoader.class)
-public class H2Test {
+@ContextConfiguration(classes = {H2DbConfigT.class}, loader = AnnotationConfigContextLoader.class)
+public class H2MainTest {
 
     @Autowired
     DataSource dataSource;
-    @Autowired
-    GirService girService;
 
 
     @Before
     public void before() throws FileNotFoundException, DatabaseUnitException, MalformedURLException, SQLException {
         Assert.assertThat(dataSource, notNullValue());
-        Assert.assertThat(girService, notNullValue());
         TestDbUtils.before(dataSource);
     }
 
@@ -64,32 +55,22 @@ public class H2Test {
 @Test
 public void testCreateDataBase() throws SQLException {
 
-    try (Connection conn = dataSource.getConnection()){
+    try (Connection conn = dataSource.getConnection()) {
         PreparedStatement ps = conn.prepareStatement("select * from tdm.tm_object_op");
         ResultSet rs = ps.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             System.out.printf("rs=" + rs.getString("vrsvop"));
         }
     }
 
-    try (Connection conn = dataSource.getConnection()){
+    try (Connection conn = dataSource.getConnection()) {
         PreparedStatement ps = conn.prepareStatement("select * from NSI.NAME_OB");
         ResultSet rs = ps.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             System.out.printf("rs=" + rs.getString("esrst"));
         }
     }
-
 }
-
-    @Test
-    public void testGetTmObjectOpList()  {
-        List<TmObjectOp> list = girService.getTmObjectOpList();
-        Assert.assertThat(list, notNullValue());
-        Assert.assertThat(list, not(IsEmptyCollection.emptyCollectionOf(TmObjectOp.class)));
-    }
-
-
 
     @Test
     public void testNotEmptyList(){

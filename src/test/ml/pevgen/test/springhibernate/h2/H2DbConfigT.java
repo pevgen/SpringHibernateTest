@@ -1,10 +1,9 @@
-package test.ml.pevgen.test.springhibernate.db;
+package test.ml.pevgen.test.springhibernate.h2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.jdbc.datasource.embedded.*;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -20,7 +19,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-public class H2Config {
+public class H2DbConfigT {
 
     @Bean
     public DataSource dataSource() {
@@ -28,12 +27,12 @@ public class H2Config {
         // no need shutdown, EmbeddedDatabaseFactoryBean will take care of this
 //        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 //
-//        EmbeddedDatabase db = builder
+//        EmbeddedDatabase h2 = builder
 //                .setType(EmbeddedDatabaseType.H2) //.H2 or .DERBY
-//                .addScript("/test/ml/pevgen/test/springhibernate/db/create-tables.sql")
+//                .addScript("/test/ml/pevgen/test/springhibernate/h2/create-tables.sql")
 ////                .addScript("test-dataset.sql")
 //                .build();
-//        return db;
+//        return h2;
 
 
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();

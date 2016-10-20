@@ -1,14 +1,11 @@
-package test.ml.pevgen.test.springhibernate.db;
+package test.ml.pevgen.test.springhibernate.h2;
 
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
-import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.ReplacementDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.dbunit.ext.h2.H2Connection;
 import org.dbunit.operation.DatabaseOperation;
 import org.h2.tools.RunScript;
 
@@ -18,7 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
-import java.util.Date;
 
 /**
  * Created by user on 15.06.2015.
@@ -37,7 +33,7 @@ public class TestDbUtils {
     public static void before(DataSource dataSource)
             throws FileNotFoundException, SQLException, DatabaseUnitException, MalformedURLException {
 
-        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/db/create-tables.sql"));
+        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/h2/create-tables.sql"));
 
         // Create DBUnit Database connection
         IDatabaseConnection con = new DatabaseConnection(dataSource.getConnection());
@@ -46,14 +42,14 @@ public class TestDbUtils {
         try {
             con.getConfig().setProperty(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
 
-            FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/db/test-dataset.xml")); // Load XML file to DB unit dataset
+            FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/test-dataset.xml")); // Load XML file to DB unit dataset
 
 //            ReplacementDataSet rDataSet = new ReplacementDataSet(dataSet);
 //            rDataSet.addReplacementObject("[TODAY]", new Date());
 
             DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
 
-            dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/db/custom-layout-dataset.xml")); // Load XML file to DB unit dataset
+            dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/custom-layout-dataset.xml")); // Load XML file to DB unit dataset
             DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
 
         } finally {
@@ -70,7 +66,7 @@ public class TestDbUtils {
      * @throws java.io.FileNotFoundException
      */
     public static void after(DataSource dataSource) throws SQLException, FileNotFoundException {
-        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/db/delete-tables.sql"));
+        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/h2/delete-tables.sql"));
     }
 
 }

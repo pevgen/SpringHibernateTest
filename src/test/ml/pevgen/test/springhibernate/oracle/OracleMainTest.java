@@ -1,4 +1,4 @@
-package test.ml.pevgen.test.springhibernate;
+package test.ml.pevgen.test.springhibernate.oracle;
 
 import ml.pevgen.test.springhibernate.service.SplmtService;
 import org.junit.Assert;
@@ -17,8 +17,8 @@ import java.util.List;
  * Created by user on 14.09.2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {DbConfigTest.class, ServiceConfigTest.class}, loader = AnnotationConfigContextLoader.class)
-public class MainTest {
+@ContextConfiguration(classes = {OracleDbConfigT.class, ServiceConfigT.class}, loader = AnnotationConfigContextLoader.class)
+public class OracleMainTest {
 
     @Autowired
     DataSource dataSource;

@@ -1,17 +1,14 @@
-package test.ml.pevgen.test.springhibernate.db;
+package test.ml.pevgen.test.springhibernate.h2;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.dbunit.DatabaseUnitException;
-import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
-import org.dbunit.ext.oracle.OracleDataTypeFactory;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,7 +20,7 @@ public class OracleDataSourceTest {
 
 
     @Test
-    public void ds() throws SQLException, DatabaseUnitException, IOException {
+    public void saveTableWithXmlToFile() throws SQLException, DatabaseUnitException, IOException {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setUser("wps");  // dataSource.setUser(env.getProperty("user"));
         dataSource.setPassword("wps_admin");

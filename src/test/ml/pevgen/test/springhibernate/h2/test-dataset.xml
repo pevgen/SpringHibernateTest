@@ -6,6 +6,7 @@
     <NSI.NS015 kodop_p="01" name_op="Прибытие" name_ops="Прб" obozn_op="Прб"/>
 
     <TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="2015-12-15 13:13:13.0" kodop_p="01" id_obj="1" id_stan="1410"/>
+    <TDM.TM_OBJECT_OP id_poezd="-101" vrsvop="2016-10-20 13:13:13.0" kodop_p="01" id_obj="1" id_stan="1410"/>
 
 
     <!--<TDM.CUSTOM_LAYOUT id_layout="1" is_active="1" type_id ="1" xml='<?xml version="1.0" encoding="UTF-8"?><some xml></some xml>'/>-->

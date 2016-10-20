@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 /**
  * Created by Polyak on 19.10.2016.
  */
-public class PnxServiceConfigTest {
+public class PnxServiceConfigT {
 
     @Bean
     public PnxStationaryService pnxStationaryService(){
