@@ -2,6 +2,7 @@ package ml.pevgen.test.springhibernate.domain;
 
 import ml.pevgen.test.springhibernate.xmlmodel.StringToCustomLayoutConverter;
 import ml.pevgen.test.springhibernate.xmlmodel.XmlCustomLayout;
+import org.hibernate.annotations.ColumnTransformer;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,30 +15,32 @@ import java.time.LocalDateTime;
 public class CustomLayout {
 
     @Id
-    @Column(name = "id_layout")
+    @Column(name = "id_layout", updatable=false)
     String layoutId;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active", updatable=false)
     Integer isActive;
 
-    @Column(name = "xml")
-    @Convert(converter=StringToCustomLayoutConverter.class)
+//    @ColumnTransformer(read = "(xml).getClobVal()")
+    @Column(name = "xml", updatable=false)
+    @Convert(converter = StringToCustomLayoutConverter.class)
     XmlCustomLayout xmlCustomLayout;
-    @Column(name = "userid")
+
+    @Column(name = "userid", updatable=false)
     Long userId;
-    @Column(name = "description")
+    @Column(name = "description", updatable=false)
     String description;
-    @Column(name = "create_date")
+    @Column(name = "create_date", updatable=false)
     LocalDateTime createDate;
-    @Column(name = "groupname")
+    @Column(name = "groupname", updatable=false)
     String groupName;
-    @Column(name = "type_id")
+    @Column(name = "type_id", updatable=false)
     Integer typeId;
-    @Column(name = "id_stan")
+    @Column(name = "id_stan", updatable=false)
     Long stanId;
-    @Column(name = "enable_backup")
+    @Column(name = "enable_backup", updatable=false)
     Integer enableBackup;
-    @Column(name = "daily_backup_hour")
+    @Column(name = "daily_backup_hour", updatable=false)
     Integer dailyBackupHour;
 
     public String getLayoutId() {

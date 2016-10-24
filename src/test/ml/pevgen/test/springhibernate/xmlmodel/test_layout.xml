@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Customization xmlns="http://www.transsys.ru/phoenix/modules.contactchart.internal/primary">
+    <Parameters>
+        <Parameter name="ContactChartPastHours" value="12"/>
+        <Parameter name="ContactChartFutureHours" value="12"/>
+        <Parameter name="ContactChartOverridenNow" value=""/>
+        <Parameter name="AutoRefreshPeriod" value="900"/>
+    </Parameters>
+    <Preferences>
+        <SlotsPreferences preferencesId="1000">
+            <SlotsRange directTime="9" reverseTime="9" multiplier="0.9"/>
+            <SlotsRange directTime="20" reverseTime="20" multiplier="2.0"/>
+            <SlotsRange directTime="27" reverseTime="27" multiplier="2.7"/>
+            <SlotsRange directTime="40" reverseTime="40" multiplier="4.0"/>
+            <SlotsRange directTime="10" reverseTime="30" multiplier="1.0"/>
+            <SlotsRange directTime="10" reverseTime="10" multiplier="1.0"/>
+            <SlotsRange directTime="13" reverseTime="13" multiplier="1.3"/>
+            <SlotsRange directTime="12" reverseTime="12" multiplier="1.2"/>
+            <SlotsRange directTime="12" reverseTime="12" multiplier="1.2"/>
+            <SlotsRange directTime="13" reverseTime="13" multiplier="1.3"/>
+            <SlotsRange directTime="24" reverseTime="24" multiplier="2.4"/>
+            <SlotsRange directTime="55" reverseTime="55" multiplier="5.5"/>
+            <SlotsRange directTime="23" reverseTime="23" multiplier="2.3"/>
+            <SlotsRange directTime="26" reverseTime="22" multiplier="2.6"/>
+            <SlotsRange directTime="33" reverseTime="33" multiplier="3.3"/>
+            <SlotsRange directTime="13" reverseTime="13" multiplier="1.3"/>
+            <SlotsRange directTime="38" reverseTime="38" multiplier="3.8"/>
+            <SlotsRange directTime="26" reverseTime="26" multiplier="2.6"/>
+            <SlotsRange directTime="35" reverseTime="35" multiplier="3.5"/>
+            <SlotsRange directTime="25" reverseTime="25" multiplier="2.5"/>
+            <SlotsRange directTime="18" reverseTime="18" multiplier="1.8"/>
+            <SlotsRange directTime="54" reverseTime="54" multiplier="5.4"/>
+            <SlotsRange directTime="19" reverseTime="19" multiplier="1.9"/>
+            <SlotsRange directTime="20" reverseTime="20" multiplier="2.0"/>
+            <SlotsRange directTime="17" reverseTime="17" multiplier="1.7"/>
+            <SlotsRange directTime="17" reverseTime="20" multiplier="1.7"/>
+            <SlotsRange directTime="11" reverseTime="11" multiplier="1.1"/>
+            <SlotsRange directTime="40" reverseTime="40" multiplier="4.0"/>
+            <SlotsRange directTime="10" reverseTime="15" multiplier="1.0"/>
+            <SlotsRange directTime="50" reverseTime="50" multiplier="5.0"/>
+            <SlotsRange directTime="10" reverseTime="10" multiplier="1.0"/>
+            <SlotsRange directTime="4" reverseTime="4" multiplier="0.4"/>
+            <SlotsRange directTime="27" reverseTime="27" multiplier="2.7"/>
+            <SlotsRange directTime="26" reverseTime="26" multiplier="2.6"/>
+            <SlotsRange directTime="37" reverseTime="37" multiplier="3.7"/>
+            <SlotsRange directTime="30" reverseTime="30" multiplier="3.0"/>
+            <SlotsRange directTime="37" reverseTime="37" multiplier="3.7"/>
+            <SlotsRange directTime="18" reverseTime="18" multiplier="1.8"/>
+            <SlotsRange directTime="20" reverseTime="20" multiplier="2.0"/>
+            <SlotsRange directTime="18" reverseTime="18" multiplier="1.8"/>
+            <SlotsRange directTime="35" reverseTime="35" multiplier="3.5"/>
+            <SlotsRange directTime="15" reverseTime="15" multiplier="1.5"/>
+            <SlotsRange directTime="30" reverseTime="50" multiplier="3.0"/>
+            <SlotsRange directTime="50" reverseTime="50" multiplier="5.0"/>
+            <SlotsRange directTime="63" reverseTime="63" multiplier="6.3"/>
+            <SlotsRange directTime="54" reverseTime="54" multiplier="5.4"/>
+            <SlotsRange directTime="61" reverseTime="61" multiplier="6.1"/>
+            <SlotsRange directTime="73" reverseTime="73" multiplier="7.3"/>
+            <SlotsRange directTime="29" reverseTime="29" multiplier="2.9"/>
+            <SlotsRange directTime="9" reverseTime="9" multiplier="0.9"/>
+            <SlotsRange directTime="17" reverseTime="17" multiplier="1.7"/>
+            <SlotsRange directTime="15" reverseTime="15" multiplier="1.5"/>
+            <SlotsRange directTime="30" reverseTime="30" multiplier="3.0"/>
+            <SlotsRange directTime="91" reverseTime="91" multiplier="9.1"/>
+            <SlotsRange directTime="56" reverseTime="56" multiplier="5.6"/>
+            <SlotsRange directTime="51" reverseTime="51" multiplier="5.1"/>
+            <SlotsRange directTime="38" reverseTime="38" multiplier="3.8"/>
+            <SlotsRange directTime="30" reverseTime="30" multiplier="3.0"/>
+            <SlotsRange directTime="30" reverseTime="30" multiplier="3.0"/>
+            <SlotsRange directTime="23" reverseTime="23" multiplier="2.3"/>
+            <SlotsRange directTime="21" reverseTime="21" multiplier="2.1"/>
+            <SlotsRange directTime="25" reverseTime="25" multiplier="2.5"/>
+        </SlotsPreferences>
+    </Preferences>
+    <Layout>
+        <LayoutItem title="УчастокТайшет -Хани" kind="Slots" preferencesId="1000" supplementSet="treeitem">
+            <LayoutItem objectId="92000041000001" title="Тайшет"/>
+            <LayoutItem objectId="92004041000001" title="Акульшет"/>
+            <LayoutItem objectId="92330041000001" title="Топорок"/>
+            <LayoutItem objectId="92340041000001" title="Невельская"/>
+            <LayoutItem objectId="92350041000001" title="Парчум"/>
+            <LayoutItem objectId="92360041000001" title="Разъезд 9"/>
+            <LayoutItem objectId="92370041000001" title="Новочунка"/>
+            <LayoutItem objectId="92380041000001" title="Сосновые Родники"/>
+            <LayoutItem objectId="92390041000001" title="Чуна"/>
+            <LayoutItem objectId="92400041000001" title="ИЗЫКАН"/>
+            <LayoutItem objectId="92410041000001" title="Таргиз"/>
+            <LayoutItem objectId="92420041000001" title="КЕШЕВО"/>
+            <LayoutItem objectId="92430041000001" title="Турма"/>
+            <LayoutItem objectId="92440041000001" title="Вихоревка"/>
+            <LayoutItem objectId="92490041000001" title="Анзёби"/>
+            <LayoutItem objectId="92500041000001" title="Падунские Пороги"/>
+            <LayoutItem objectId="92510041000001" title="Гидростроитель"/>
+            <LayoutItem objectId="92520041000001" title="Пашенный"/>
+            <LayoutItem objectId="92530041000001" title="Кежемская"/>
+            <LayoutItem objectId="92590041000001" title="Речушка"/>
+            <LayoutItem objectId="92540041000001" title="Видим"/>
+            <LayoutItem objectId="92550041000001" title="Сохатый"/>
+            <LayoutItem objectId="92560041000001" title="Среднеилимская"/>
+            <LayoutItem objectId="92570041000001" title="Коршуниха-Ангарская"/>
+            <LayoutItem objectId="92580041000001" title="Хребтовая"/>
+            <LayoutItem objectId="92583041000001" title="Карстовая"/>
+            <LayoutItem objectId="92670041000001" title="СЕМИГОРСК"/>
+            <LayoutItem objectId="92680041000001" title="МЕРЗЛОТНАЯ"/>
+            <LayoutItem objectId="92690041000001" title="РУЧЕЙ РЗД."/>
+            <LayoutItem objectId="92700041000001" title="ЯНТАЛЬ"/>
+            <LayoutItem objectId="92710041000001" title="ЛЕНА"/>
+            <LayoutItem objectId="92760041000001" title="ЯКУРИМ"/>
+            <LayoutItem objectId="92780041000001" title="Лена-Вост"/>
+            <LayoutItem objectId="90223041000001" title="ЧУДНИЧНЫЙ РЗД."/>
+            <LayoutItem objectId="90220041000001" title="ЗВЕЗДНАЯ"/>
+            <LayoutItem objectId="90230041000001" title="НИЯ"/>
+            <LayoutItem objectId="90250041000001" title="НЕБЕЛЬ РЗД."/>
+            <LayoutItem objectId="90270041000001" title="КИРЕНГА"/>
+            <LayoutItem objectId="90280041000001" title="ОКУНАЙСКИЙ РЗД."/>
+            <LayoutItem objectId="90290041000001" title="УЛЬКАН"/>
+            <LayoutItem objectId="90291041000001" title="УМБЕЛЛА РЗД."/>
+            <LayoutItem objectId="90300041000001" title="КУНЕРМА"/>
+            <LayoutItem objectId="90301041000001" title="ДЕЛЬБИЧИНДА РЗД"/>
+            <LayoutItem objectId="90310041000001" title="ДАБАН"/>
+            <LayoutItem objectId="90320041000001" title="СЕВЕРОБАЙКАЛЬСК"/>
+            <LayoutItem objectId="90340041000001" title="КИЧЕРА"/>
+            <LayoutItem objectId="90350041000001" title="АНГОЯ"/>
+            <LayoutItem objectId="90360041000001" title="НОВЫЙ УОЯН"/>
+            <LayoutItem objectId="90380041000001" title="КЮХЕЛЬБЕКЕРСКАЯ"/>
+            <LayoutItem objectId="90392041000001" title="АНГАРАКАН РЗД."/>
+            <LayoutItem objectId="90410041000001" title="ИТЫКИТ"/>
+            <LayoutItem objectId="90400041000001" title="ОКУСИКАН"/>
+            <LayoutItem objectId="90570041000001" title="СЕВЕРОМУЙСК"/>
+            <LayoutItem objectId="90440041000001" title="ТАКСИМО"/>
+            <LayoutItem objectId="90650041000001" title="КУАНДА"/>
+            <LayoutItem objectId="90436041000001" title="СЮЛЬБАН РЗД."/>
+            <LayoutItem objectId="90433041000001" title="ЛЕПРИНДО"/>
+            <LayoutItem objectId="90430041000001" title="НОВАЯ ЧАРА"/>
+            <LayoutItem objectId="90450041000001" title="ИКАБЬЯ"/>
+            <LayoutItem objectId="90453041000001" title="ИКАБЬЕКАН"/>
+            <LayoutItem objectId="90452041000001" title="МУРУРИН"/>
+            <LayoutItem objectId="90451041000001" title="ОЛОНГДО"/>
+            <LayoutItem objectId="90460041000001" title="Хани"/>
+        </LayoutItem>
+    </Layout>
+</Customization>

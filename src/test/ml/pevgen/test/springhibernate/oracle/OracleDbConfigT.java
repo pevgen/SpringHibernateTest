@@ -4,6 +4,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -21,7 +22,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-//@PropertySource({ "classpath:persistence-mysql.properties" })
+@PropertySource({ "classpath:test/ml/pevgen/test/springhibernate/oracle/ora-test.properties" })
 public class OracleDbConfigT {
 
     @Autowired
@@ -44,9 +45,9 @@ public class OracleDbConfigT {
 
 
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setUser("wps");  // dataSource.setUser(env.getProperty("user"));
-        dataSource.setPassword("wps_admin");
-        dataSource.setJdbcUrl("jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.101.12)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=t92.isupr.msk.ru)))");
+        dataSource.setUser(env.getProperty("user"));
+        dataSource.setPassword(env.getProperty("password"));
+        dataSource.setJdbcUrl(env.getProperty("connectString"));
         return dataSource;
     }
 

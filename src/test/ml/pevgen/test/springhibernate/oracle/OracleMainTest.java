@@ -2,6 +2,7 @@ package test.ml.pevgen.test.springhibernate.oracle;
 
 import ml.pevgen.test.springhibernate.service.SplmtService;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class OracleMainTest {
     @Autowired
     SplmtService splmtService;
 
+    @Ignore
     @Test
     public void testSplmtList() {
         Assert.assertNotNull(dataSource);
@@ -33,6 +35,7 @@ public class OracleMainTest {
         splmtService.getSplmtList();
     }
 
+    @Ignore
     @Test
     public void getPlainList() {
         Assert.assertNotNull(dataSource);

@@ -21,6 +21,8 @@ import java.sql.SQLException;
  */
 public class TestDbUtils {
 
+    public final static String TEST_LAYOUT_ID = "202";
+
 
     /**
      * Создание таблиц и загрузка тестовых данных из xml-datasset-file
@@ -42,15 +44,16 @@ public class TestDbUtils {
         try {
             con.getConfig().setProperty(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
 
-            FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/test-dataset.xml")); // Load XML file to DB unit dataset
+            //FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/test-dataset.xml")); // Load XML file to DB unit dataset
+            FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/test_dataset_all.xml")); // Load XML file to DB unit dataset
 
 //            ReplacementDataSet rDataSet = new ReplacementDataSet(dataSet);
 //            rDataSet.addReplacementObject("[TODAY]", new Date());
 
             DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
 
-            dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/custom-layout-dataset.xml")); // Load XML file to DB unit dataset
-            DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
+//            dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/custom-layout-dataset.xml")); // Load XML file to DB unit dataset
+//            DatabaseOperation.CLEAN_INSERT.execute(con, dataSet); //Import your data
 
         } finally {
             con.close();

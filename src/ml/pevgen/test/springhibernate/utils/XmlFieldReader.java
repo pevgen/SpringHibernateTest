@@ -27,7 +27,8 @@ public class XmlFieldReader {
 //        xmlMapper.disable(SerializationFeature.INDENT_OUTPUT);
 //        xmlMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
         xmlMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-//        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        xmlMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true);
 
 
 

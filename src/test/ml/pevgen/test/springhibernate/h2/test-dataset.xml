@@ -2,11 +2,31 @@
 
     <NSI.NAME_OB id_obj="1" esrst="0010" type_ob="01" vid_ob="10" name_20="Путь 1" name_6="Путь"/>
     <NSI.NAME_OB id_obj="1410" esrst="00410" type_ob="04" vid_ob="10" name_20="Станция 1" name_6="Ст"/>
+    <NSI.NAME_OB id_obj="92570062200001" esrst="925700" type_ob="06" vid_ob="22" name_20="Что-то " name_6="Что"/>
+
 
     <NSI.NS015 kodop_p="01" name_op="Прибытие" name_ops="Прб" obozn_op="Прб"/>
+    <NSI.NS015 kodop_p="02" name_op="Отправление" name_ops="Отп" obozn_op="Отп"/>
+    <NSI.NS015 kodop_p="99" name_op="Фиктивная операция" name_ops="Фик" obozn_op="Фик"/>
 
-    <TDM.TM_OBJECT_OP id_poezd="-100" vrsvop="2015-12-15 13:13:13.0" kodop_p="01" id_obj="1" id_stan="1410"/>
-    <TDM.TM_OBJECT_OP id_poezd="-101" vrsvop="2016-10-20 13:13:13.0" kodop_p="01" id_obj="1" id_stan="1410"/>
+    <TDM.TM_OBJECT_OP
+            id_poezd="-100"
+            vrsvop="2015-12-15 11:13:13.0"
+            kodop_p="01"
+            id_obj="1"
+            id_stan="1410"/>
+    <TDM.TM_OBJECT_OP
+            id_poezd="-101"
+            vrsvop="2016-10-20 13:13:13.0"
+            kodop_p="02"
+            id_obj="92570062200001"
+            id_stan="1410"/>
+    <TDM.TM_OBJECT_OP
+            id_poezd="-101"
+            vrsvop="2016-10-20 13:14:13.0"
+            kodop_p="01"
+            id_obj="1"
+            id_stan="1410"/>
 
 
     <!--<TDM.CUSTOM_LAYOUT id_layout="1" is_active="1" type_id ="1" xml='<?xml version="1.0" encoding="UTF-8"?><some xml></some xml>'/>-->

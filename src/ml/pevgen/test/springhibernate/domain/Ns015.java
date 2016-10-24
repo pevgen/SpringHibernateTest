@@ -13,26 +13,26 @@ import javax.persistence.Table;
 public class Ns015 {
 
     @Id
-    @Column(name = "kodop_p")
+    @Column(name = "kodop_p", updatable=false)
     private String kodOpP;
 
-    @Column(name = "name_op")
+    @Column(name = "name_op", updatable=false)
     private String nameOp;
-    @Column(name = "name_ops")
+    @Column(name = "name_ops", updatable=false)
     private String nameOpS;
-    @Column(name = "obozn_op")
+    @Column(name = "obozn_op", updatable=false)
     private String oboznOp;
-    @Column(name = "tab_kod")
+    @Column(name = "tab_kod", updatable=false)
     private String tabKod;
-    @Column(name = "kod_1042")
+    @Column(name = "kod_1042", updatable=false)
     private String kod1042;
-    @Column(name = "pr_otmen")
+    @Column(name = "pr_otmen", updatable=false)
     private Integer prOtmen;
-    @Column(name = "tipop_p")
+    @Column(name = "tipop_p", updatable=false)
     private String tipOpP;
-    @Column(name = "pr_vag")
+    @Column(name = "pr_vag", updatable=false)
     private Integer prVag;
-    @Column(name = "pr_gimr")
+    @Column(name = "pr_gimr", updatable=false)
     private Integer prGimr;
 
     public String getKodOpP() {

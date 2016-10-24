@@ -19,8 +19,8 @@ public class XmlCustomLayout {
 //   @JacksonXmlElementWrapper(useWrapping = false)
     private List<XmlParameter> parameterList;
 
-    @JacksonXmlProperty(localName = "Preferences")
-    private List<XmlPreference> preferenceList;
+//    @JacksonXmlProperty(localName = "Preferences")
+//    private List<XmlPreference> preferenceList;
 
     @JacksonXmlProperty(localName = "Layout")
     @JacksonXmlElementWrapper(useWrapping = false)
@@ -34,13 +34,13 @@ public class XmlCustomLayout {
         this.parameterList = parameterList;
     }
 
-    public List<XmlPreference> getPreferenceList() {
-        return preferenceList;
-    }
-
-    public void setPreferenceList(List<XmlPreference> preferenceList) {
-        this.preferenceList = preferenceList;
-    }
+//    public List<XmlPreference> getPreferenceList() {
+//        return preferenceList;
+//    }
+//
+//    public void setPreferenceList(List<XmlPreference> preferenceList) {
+//        this.preferenceList = preferenceList;
+//    }
 
     public List<XmlLayout> getLayoutList() {
         return layoutList;

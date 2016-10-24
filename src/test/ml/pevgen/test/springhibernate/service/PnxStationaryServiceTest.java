@@ -37,9 +37,10 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class PnxStationaryServiceTest {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
     @Autowired
-    PnxStationaryService pnxStationaryService;
+    private PnxStationaryService pnxStationaryService;
+
 
 
     @Before
@@ -64,20 +65,28 @@ public class PnxStationaryServiceTest {
 
     @Test
     public void testGetCustomLayoutById(){
-        CustomLayout layout = pnxStationaryService.getCustomLayoutById("92570041000001");
+        CustomLayout layout = pnxStationaryService.getCustomLayoutById(TestDbUtils.TEST_LAYOUT_ID);
         Assert.assertThat(layout, notNullValue());
     }
 
     @Test
     public void testGetLayoutIds(){
         LocalTime time = LocalTime.now();
-        CustomLayout layout = pnxStationaryService.getCustomLayoutById("92570041000001");
+        CustomLayout layout = pnxStationaryService.getCustomLayoutById(TestDbUtils.TEST_LAYOUT_ID);
         System.out.println();
         Assert.assertThat(layout, notNullValue());
 
 
         List<String> result = pnxStationaryService.getLayoutIds(layout);
         System.out.println("difftime,ms=" + ChronoUnit.MILLIS.between(time, LocalTime.now()));
+        Assert.assertThat(result, notNullValue());
+        Assert.assertThat(result, not(IsEmptyCollection.emptyCollectionOf(String.class)));
+    }
+
+
+    @Test
+    public void testGetLayoutIdsById(){
+        List<String> result = pnxStationaryService.getLayoutIdsById(TestDbUtils.TEST_LAYOUT_ID);
         Assert.assertThat(result, notNullValue());
         Assert.assertThat(result, not(IsEmptyCollection.emptyCollectionOf(String.class)));
     }

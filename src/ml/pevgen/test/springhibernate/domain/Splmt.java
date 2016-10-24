@@ -11,18 +11,18 @@ import java.util.List;
 public class Splmt {
 
     @Id
-    @Column(name = "id_supplement")
+    @Column(name = "id_supplement", updatable=false)
     long idSupplement;
 
-    @Column(name = "title")
+    @Column(name = "title", updatable=false)
     String title;
-    @Column(name = "uri")
+    @Column(name = "uri", updatable=false)
     String uri;
-    @Column(name = "href")
+    @Column(name = "href", updatable=false)
     String href;
-    @Column(name = "id_categ")
+    @Column(name = "id_categ", updatable=false)
     Long idCateg;
-    @Column(name = "group_name")
+    @Column(name = "group_name", updatable=false)
     String groupName;
 
 //    @ManyToMany(fetch=FetchType.EAGER)  // FetchType.EAGER because the class is used in web-json-request (ServiceSontroller)

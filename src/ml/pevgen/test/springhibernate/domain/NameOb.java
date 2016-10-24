@@ -13,28 +13,28 @@ import javax.persistence.Table;
 public class NameOb {
 
     @Id
-    @Column(name = "id_obj")
+    @Column(name = "id_obj", updatable=false)
     long idObj;
 
-    @Column(name = "esrst")
+    @Column(name = "esrst", updatable=false)
     private String esrst;
-    @Column(name = "type_ob")
+    @Column(name = "type_ob", updatable=false)
     private String typeOb;
-    @Column(name = "vid_ob")
+    @Column(name = "vid_ob", updatable=false)
     private String vidOb;
-    @Column(name = "name_20")
+    @Column(name = "name_20", updatable=false)
     private String name20;
-    @Column(name = "name_6")
+    @Column(name = "name_6", updatable=false)
     private String name6;
-    @Column(name = "name_2")
+    @Column(name = "name_2", updatable=false)
     private String name2;
-    @Column(name = "external_id")
+    @Column(name = "external_id", updatable=false)
     private long externalId;
-    @Column(name = "subtype")
+    @Column(name = "subtype", updatable=false)
     private int subType;
-    @Column(name = "id_owner")
+    @Column(name = "id_owner", updatable=false)
     private long ownerId;
-    @Column(name = "num_ob")
+    @Column(name = "num_ob", updatable=false)
     private int numOb;
 
     public long getIdObj() {

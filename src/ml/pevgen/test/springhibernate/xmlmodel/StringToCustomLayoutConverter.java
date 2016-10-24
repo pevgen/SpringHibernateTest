@@ -9,9 +9,15 @@ import java.io.IOException;
  * Created by Polyak on 19.10.2016.
  */
 public class StringToCustomLayoutConverter implements AttributeConverter<XmlCustomLayout, String> {
+
     @Override
     public String convertToDatabaseColumn(XmlCustomLayout xmlCustomLayout) {
-        return "";
+        try {
+            return XmlFieldReader.writeXml(xmlCustomLayout);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
@@ -24,9 +30,11 @@ public class StringToCustomLayoutConverter implements AttributeConverter<XmlCust
         try {
             result = XmlFieldReader.readXml(xml, XmlCustomLayout.class);
             System.out.println(result);
+            return result;
         } catch (IOException e) {
             e.printStackTrace();
+            throw new IllegalArgumentException(e);
         }
-        return result;
+
     }
 }

@@ -13,12 +13,12 @@ import javax.persistence.Table;
 public class SplmtSet {
 
     @Id
-    @Column(name = "id_supplement_set")
+    @Column(name = "id_supplement_set", updatable=false)
     long idSupplementSet;
 
-    @Column(name = "name")
+    @Column(name = "name", updatable=false)
     String name;
-    @Column(name = "categ")
+    @Column(name = "categ", updatable=false)
     String categ;
 
 }

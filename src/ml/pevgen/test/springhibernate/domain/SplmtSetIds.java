@@ -14,15 +14,15 @@ import java.io.Serializable;
 public class SplmtSetIds implements Serializable {
 
     @Id
-    @Column(name = "id_supplement_set")
+    @Column(name = "id_supplement_set", updatable=false)
     Long idSupplementSet;
 
     @Id
-    @Column(name = "id_supplement")
+    @Column(name = "id_supplement", updatable=false)
     Long idSupplement;
 
 
-    @Column(name = "sn")
+    @Column(name = "sn", updatable=false)
     Integer sn;
 
 }
