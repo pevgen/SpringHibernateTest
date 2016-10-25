@@ -1,20 +1,27 @@
 package ml.pevgen.test.springhibernate.configuration;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.dbunit.DatabaseUnitException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import test.ml.pevgen.test.springhibernate.h2.TestDbUtils;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
@@ -29,12 +36,19 @@ public class DbConfig {
     private Environment env;
 
     @Bean
-    public DataSource dataSource() throws PropertyVetoException {
-//            SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-//            dataSource.setDriverClass(org.h2.Driver.class);
-//            dataSource.setUsername("sa");
-//            dataSource.setUrl("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
-//            dataSource.setPassword("");
+    public DataSource dataSource() throws PropertyVetoException, IOException {
+            SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+            dataSource.setDriverClass(org.h2.Driver.class);
+            dataSource.setUsername("sa");
+            dataSource.setUrl("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
+            dataSource.setPassword("");
+        try {
+            TestDbUtils.before(dataSource);
+        } catch (FileNotFoundException | SQLException | DatabaseUnitException | MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
 //
 //            // create a table and populate some data
 //            JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -44,11 +58,12 @@ public class DbConfig {
 //            jdbcTemplate.update("INSERT INTO users(firstName, lastName, email) values (?,?,?)", "Mike", "Lanyon", "lanyonm@gmail.com");
 
 
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDriverClass("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUser("wps");  // dataSource.setUser(env.getProperty("user"));
-        dataSource.setPassword("wps_admin");
-        dataSource.setJdbcUrl("jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.101.12)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=t92.isupr.msk.ru)))");
+//        ComboPooledDataSource dataSource = new ComboPooledDataSource();
+//        dataSource.setDriverClass("oracle.jdbc.driver.OracleDriver");
+//        dataSource.setUser(dataSource.setUser(env.getProperty("user"));
+//        dataSource.setPassword(dataSource.setUser(env.getProperty("password"));
+//        dataSource.setJdbcUrl("jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.101.12)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=t92.isupr.msk.ru)))");
+//        dataSource.setJdbcUrl("jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.212)(PORT = 1521)))(CONNECT_DATA=(SERVICE_NAME=t92.asust.tst.rzd)))");
         return dataSource;
     }
 
@@ -72,7 +87,7 @@ public class DbConfig {
 //    }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException, IOException {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[] { "ml.pevgen.test.springhibernate.domain" });

@@ -16,6 +16,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import javax.sql.DataSource;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,7 +42,7 @@ public class H2MainTest {
 
 
     @Before
-    public void before() throws FileNotFoundException, DatabaseUnitException, MalformedURLException, SQLException {
+    public void before() throws IOException, DatabaseUnitException, SQLException {
         Assert.assertThat(dataSource, notNullValue());
         TestDbUtils.before(dataSource);
     }

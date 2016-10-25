@@ -8,11 +8,11 @@ import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.h2.tools.RunScript;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import javax.sql.DataSource;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
 
@@ -33,9 +33,10 @@ public class TestDbUtils {
      * @throws java.net.MalformedURLException
      */
     public static void before(DataSource dataSource)
-            throws FileNotFoundException, SQLException, DatabaseUnitException, MalformedURLException {
+            throws IOException, SQLException, DatabaseUnitException {
 
-        RunScript.execute(dataSource.getConnection(), new FileReader("./src/test/ml/pevgen/test/springhibernate/h2/create-tables.sql"));
+        ClassPathResource resourceCreateTables = new ClassPathResource("/test/ml/pevgen/test/springhibernate/h2/create-tables.sql");
+        RunScript.execute(dataSource.getConnection(), new InputStreamReader(resourceCreateTables.getInputStream()));//new FileReader("./src/test/ml/pevgen/test/springhibernate/h2/create-tables.sql"));
 
         // Create DBUnit Database connection
         IDatabaseConnection con = new DatabaseConnection(dataSource.getConnection());
@@ -44,8 +45,8 @@ public class TestDbUtils {
         try {
             con.getConfig().setProperty(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
 
-            //FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/test-dataset.xml")); // Load XML file to DB unit dataset
-            FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("./src/test/ml/pevgen/test/springhibernate/h2/test_dataset_all.xml")); // Load XML file to DB unit dataset
+            ClassPathResource resourceData = new ClassPathResource("/test/ml/pevgen/test/springhibernate/h2/TEST_DATASET_ALL.xml");
+            FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(resourceData.getInputStream());//new File("./src/test/ml/pevgen/test/springhibernate/h2/test_dataset_all.xml")); // Load XML file to DB unit dataset
 
 //            ReplacementDataSet rDataSet = new ReplacementDataSet(dataSet);
 //            rDataSet.addReplacementObject("[TODAY]", new Date());

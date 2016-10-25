@@ -36,7 +36,9 @@ public class GidService {
 
 
     @Rollback
+    @Transactional
     public List<TmObjectOp> getFact(String customizationId, LocalDateTime fromTime, LocalDateTime untilTime) {
+
         // Допустимые операции
         List<String> opList = Arrays.asList("01", "02", "03", "04", "05", "06", "07", "08", "09", "40", "10", "18", "20", "12", "13", "19", "37");
 

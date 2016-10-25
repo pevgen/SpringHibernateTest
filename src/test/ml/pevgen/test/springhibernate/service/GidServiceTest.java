@@ -18,6 +18,7 @@ import test.ml.pevgen.test.springhibernate.h2.TestDbUtils;
 
 import javax.sql.DataSource;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -46,7 +47,7 @@ public class GidServiceTest {
 
 
     @Before
-    public void before() throws FileNotFoundException, DatabaseUnitException, MalformedURLException, SQLException {
+    public void before() throws IOException, DatabaseUnitException, SQLException {
         Assert.assertThat(dataSource, notNullValue());
         Assert.assertThat(gidService, notNullValue());
         TestDbUtils.before(dataSource);
